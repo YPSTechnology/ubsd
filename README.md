@@ -21,8 +21,8 @@ const discoverer = new ubsd.Discoverer();
 
 discoverer.listen('myServiceName');
 
-discoverer.on('serviceUp', (msg) => {
-    console.log('serviceUp', msg); // {port: 3000}
+discoverer.on('serviceUp', (data) => {
+    console.log('serviceUp', data); // {msg: {port: 3000}, address: '192.168.1.100'}
 });
 
 discoverer.on('serviceDown', () => {
@@ -61,10 +61,10 @@ Listen the udp broadcast of `serviceName`.
 * `broadcastPort` - (Number, Optional, Default `10240`) udp broadcast port. Must be consistent with `createService`.
 
 ### Event `serviceUp`
-This event is fired when find a new matched service. `msg` is what given by the second parameter of `createService`.
+This event is fired when find a new matched service. `data` is a object, containing the second parameter of `createService` and service `address`.
 ```javascript
-discoverer.on('serviceUp', (msg) => {
-    console.log('serviceUp', msg);
+discoverer.on('serviceUp', (data) => {
+    console.log('serviceUp', data);
 });
 ```
 ### Event `serviceDown`
