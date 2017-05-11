@@ -1,6 +1,6 @@
 {
   "name": "ubsd",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "UDP broadcast service discovery",
   "main": "./dist/index.js",
   "scripts": {
